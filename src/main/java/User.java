@@ -1,4 +1,5 @@
 import javax.persistence.*;
+import java.util.ArrayList;
 
 /**
  * Created by dani on 2016-11-09.
@@ -17,6 +18,15 @@ public class User {
     @Column(name = "password",
             nullable = false, length = 80)
     private String password;
+
+    @OneToMany(mappedBy = "id")
+    private Log log;
+
+    @OneToMany(mappedBy = "id")
+    private ArrayList<Message> senderMessage;
+
+    @OneToMany(mappedBy = "id")
+    private ArrayList<Message> recieverMessage;
 
     private int age;
     private String address;
@@ -44,6 +54,30 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Log getLocalLog() {
+        return log;
+    }
+
+    public void setLocalLog(Log log) {
+        this.log = log;
+    }
+
+    public ArrayList<Message> getSenderMessage() {
+        return senderMessage;
+    }
+
+    public void setSenderMessage(ArrayList<Message> senderMessage) {
+        this.senderMessage = senderMessage;
+    }
+
+    public ArrayList<Message> getRecieverMessage() {
+        return recieverMessage;
+    }
+
+    public void setRecieverMessage(ArrayList<Message> recieverMessage) {
+        this.recieverMessage = recieverMessage;
     }
 
     public int getAge() {

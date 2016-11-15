@@ -1,36 +1,44 @@
 import javax.persistence.*;
-import java.util.ArrayList;
+
+import java.util.List;
 
 /**
  * Created by dani on 2016-11-09.
  */
 @Entity
-@Table(name="users")
+@Table(name="user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "username", unique = true, length = 45)
+    @Column(unique = true, length = 45)
     private String username;
 
-    @Column(name = "password",
-            nullable = false, length = 80)
+    @Column(nullable = false, length = 80)
     private String password;
 
-    @OneToMany(mappedBy = "id")
-    private Log log;
+    @OneToMany(fetch = FetchType.LAZY ,mappedBy = "owner")
+    private List<Log> log;
 
-    @OneToMany(mappedBy = "id")
-    private ArrayList<Message> senderMessage;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sender")
+    private List<Message> senderMessage;
 
-    @OneToMany(mappedBy = "id")
-    private ArrayList<Message> recieverMessage;
+    @OneToMany(mappedBy = "reciever")
+    private List<Message> recieverMessage;
 
     private int age;
     private String address;
     private String workTitle;
+
+    public List<Log> getLog() {
+        return log;
+    }
+
+    public void setLog(List<Log> log) {
+        this.log = log;
+    }
 
     public int getId() {
         return id;
@@ -56,27 +64,19 @@ public class User {
         this.password = password;
     }
 
-    public Log getLocalLog() {
-        return log;
-    }
-
-    public void setLocalLog(Log log) {
-        this.log = log;
-    }
-
-    public ArrayList<Message> getSenderMessage() {
+    public List<Message> getSenderMessage() {
         return senderMessage;
     }
 
-    public void setSenderMessage(ArrayList<Message> senderMessage) {
+    public void setSenderMessage(List<Message> senderMessage) {
         this.senderMessage = senderMessage;
     }
 
-    public ArrayList<Message> getRecieverMessage() {
+    public List<Message> getRecieverMessage() {
         return recieverMessage;
     }
 
-    public void setRecieverMessage(ArrayList<Message> recieverMessage) {
+    public void setRecieverMessage(List<Message> recieverMessage) {
         this.recieverMessage = recieverMessage;
     }
 

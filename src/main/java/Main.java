@@ -1,19 +1,12 @@
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.metadata.ClassMetadata;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-
-import java.util.Map;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  * Created by dani on 2016-11-08.
  */
 public class Main {
-    private static final SessionFactory ourSessionFactory;
+  /*  private static final SessionFactory ourSessionFactory;
     private static final ServiceRegistry serviceRegistry;
 
     static {
@@ -30,24 +23,48 @@ public class Main {
 
     public static Session getSession() throws HibernateException {
         return ourSessionFactory.openSession();
+    } */
+
+    public static void test(){
+    /*    SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+
+        Session session = (new Configuration().configure().buildSessionFactory()).openSession();
+
+
+        session.beginTransaction();
+
+        User usert = new User();
+        usert.setAddress("tag");
+
+        Log log = new Log();
+        log.setContent("HELOO BOY");
+        log.setOwner(usert);
+        User user = new User();
+        user.setAddress("test");
+        user.setAge(12);
+        user.setPassword("123");
+        user.setUsername("Dani Daryaweesh");
+        // user.setLog(log);
+
+        session.save(user);
+        session.getTransaction().commit();
+        session.close();*/
+
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
+        EntityManager em = emf.createEntityManager();
+        User user = new User();
+        user.setPassword("12345");
+        user.setUsername("DarBirc");
+        user.setAge(12);
+        user.setWorkTitle("Garden");
+        em.persist(user);
+        em.close();
+        emf.close();
     }
 
     public static void main(final String[] args) throws Exception {
-        final Session session = getSession();
-        try {
-            System.out.println("querying all the managed entities...");
-            final Map metadataMap = session.getSessionFactory().getAllClassMetadata();
-            for (Object key : metadataMap.keySet()) {
-                final ClassMetadata classMetadata = (ClassMetadata) metadataMap.get(key);
-                final String entityName = classMetadata.getEntityName();
-                final Query query = session.createQuery("from " + entityName);
-                System.out.println("executing: " + query.getQueryString());
-                for (Object o : query.list()) {
-                    System.out.println("  " + o);
-                }
-            }
-        } finally {
-            session.close();
-        }
+
+        System.out.println("Program is oN");
     }
 }

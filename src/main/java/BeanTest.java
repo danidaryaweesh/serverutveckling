@@ -14,6 +14,7 @@ public class BeanTest{
     }
 
     public String getName() {
+        Main.test();
         return "Welcome to my world!";
     }
 }

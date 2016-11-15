@@ -5,7 +5,7 @@ import java.util.Calendar;
  * Created by dani on 2016-11-09.
  */
 @Entity
-@Table(name="message")
+@Table(name="messages")
 public class Message {
 
     @Id
@@ -13,9 +13,11 @@ public class Message {
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+   // @JoinColumn(name = "userSender", nullable = false)
     private User sender;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "userReciever", nullable = false)
     private User reciever;
 
     private String content;

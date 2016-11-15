@@ -4,6 +4,7 @@ import java.util.Calendar;
 /**
  * Created by dani on 2016-11-09.
  */
+
 @Entity
 @Table(name="log")
 public class Log {
@@ -13,12 +14,13 @@ public class Log {
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "log", nullable = false)
     private User owner;
 
-    @Column(name = "title", nullable = false, length = 80)
+    @Column(length = 80)
     private String title;
 
-    @Column(name = "content", nullable = false, length = 140)
+    @Column(length = 140)
     private String content;
 
     @Temporal(TemporalType.TIMESTAMP)

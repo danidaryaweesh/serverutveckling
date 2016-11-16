@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Register</title>
+</h:head>
+<h:body>
+    <h:form>
+        Welcome to Danibook
+        <br />
+        Register here
+        <br />
+        <br />
+        Username:
+        <h:inputText id="in" value="#{beanTest.username}"/>
+        <br/>
+
+        Password:
+        <h:inputSecret id="out" value="#{beanTest.password}"/>
+        <br/>
+
+        Age:
+        <h:inputText id="age" value="#{beanTest.age}"/>
+        <br/>
+
+        Address:
+        <h:inputText id="address" value="#{beanTest.address}"/>
+        <br/>
+
+        Title:
+        <h:inputText id="title" value="#{beanTest.workTitle}"/>
+        <br/>
+
+        <h:commandButton id="tillbakaknapp" value="Tillbaka" action="#{beanTest.backToLogin}"/>
+        <h:commandButton id="registerknapp" value="Register" action="#{beanTest.registerMe()}"/>
+    </h:form>
+</h:body>
+</html>

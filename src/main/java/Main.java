@@ -51,7 +51,7 @@ public class Main {
         session.close();*/
 
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("TestPU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
         EntityManager em = emf.createEntityManager();
         User user = new User();
         user.setPassword("12345");

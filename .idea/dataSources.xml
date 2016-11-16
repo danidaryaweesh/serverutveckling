@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1659847620">
-    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="07df2e98-f0cc-4869-878c-667cf149df31">
+  <component name="DataSourceManagerImpl" format="xml" hash="2708923068">
+    <data-source source="LOCAL" name="TestPU/Hibernate" uuid="f2711f58-977b-4855-8391-fce0d64c3ef2">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
-      <remarks>$PROJECT_DIR$/src/main/java/hibernate.cfg.xml</remarks>
+      <remarks>$PROJECT_DIR$/web/WEB-INF/META-INF/persistence.xml</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/serverlab1</jdbc-url>
       <driver-properties>
@@ -24,20 +24,6 @@
           <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/mysql-connector-java-5.1.35-bin.jar</url>
         </library>
       </libraries>
-    </data-source>
-    <data-source source="LOCAL" name="MySQL - @localhost" uuid="fb74c471-7660-47e8-b05a-2938fdddcb5e">
-      <driver-ref>mysql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
-      <driver-properties>
-        <property name="autoReconnect" value="true" />
-        <property name="zeroDateTimeBehavior" value="convertToNull" />
-        <property name="tinyInt1isBit" value="false" />
-        <property name="characterEncoding" value="utf8" />
-        <property name="characterSetResults" value="utf8" />
-        <property name="yearIsDateType" value="false" />
-      </driver-properties>
     </data-source>
   </component>
 </project>
